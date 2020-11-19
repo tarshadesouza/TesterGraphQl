@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		C1B9BCFB25668F0D00098B2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B9BCF925668F0D00098B2B /* Main.storyboard */; };
 		C1B9BCFD25668F0F00098B2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B9BCFC25668F0F00098B2B /* Assets.xcassets */; };
 		C1B9BD0025668F0F00098B2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B9BCFE25668F0F00098B2B /* LaunchScreen.storyboard */; };
+		C1B9BD102566995600098B2B /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9BD0F2566995600098B2B /* Apollo.swift */; };
+		C1B9BD132566997E00098B2B /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C1B9BD122566997E00098B2B /* Queries.graphql */; };
+		C1B9BD162566999500098B2B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9BD152566999500098B2B /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		C1B9BCFC25668F0F00098B2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1B9BCFF25668F0F00098B2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1B9BD0125668F0F00098B2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1B9BD0F2566995600098B2B /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
+		C1B9BD122566997E00098B2B /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
+		C1B9BD152566999500098B2B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D9C6206441BE5EAD81D07526 /* Pods-TesterGraphQL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesterGraphQL.debug.xcconfig"; path = "Target Support Files/Pods-TesterGraphQL/Pods-TesterGraphQL.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +62,6 @@
 				D9C6206441BE5EAD81D07526 /* Pods-TesterGraphQL.debug.xcconfig */,
 				58B7194D94A113794B9C1435 /* Pods-TesterGraphQL.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +86,7 @@
 		C1B9BCF225668F0D00098B2B /* TesterGraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				C1B9BD0E2566993700098B2B /* GraphQL */,
 				C1B9BCF325668F0D00098B2B /* AppDelegate.swift */,
 				C1B9BCF525668F0D00098B2B /* SceneDelegate.swift */,
 				C1B9BCF725668F0D00098B2B /* ViewController.swift */,
@@ -92,6 +98,16 @@
 			path = TesterGraphQL;
 			sourceTree = "<group>";
 		};
+		C1B9BD0E2566993700098B2B /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				C1B9BD0F2566995600098B2B /* Apollo.swift */,
+				C1B9BD122566997E00098B2B /* Queries.graphql */,
+				C1B9BD152566999500098B2B /* API.swift */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -100,6 +116,7 @@
 			buildConfigurationList = C1B9BD0425668F0F00098B2B /* Build configuration list for PBXNativeTarget "TesterGraphQL" */;
 			buildPhases = (
 				D50DD6A63C14DC3A415CE2DF /* [CP] Check Pods Manifest.lock */,
+				C1B9BD0C2566942000098B2B /* Generate Apollo GraphQL API */,
 				C1B9BCEC25668F0D00098B2B /* Sources */,
 				C1B9BCED25668F0D00098B2B /* Frameworks */,
 				C1B9BCEE25668F0D00098B2B /* Resources */,
@@ -153,6 +170,7 @@
 			files = (
 				C1B9BD0025668F0F00098B2B /* LaunchScreen.storyboard in Resources */,
 				C1B9BCFD25668F0F00098B2B /* Assets.xcassets in Resources */,
+				C1B9BD132566997E00098B2B /* Queries.graphql in Resources */,
 				C1B9BCFB25668F0D00098B2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +178,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		C1B9BD0C2566942000098B2B /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nSCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=https://swop.cx/graphql schema.json --header=\"Authorization: ApiKey 49c6de1f2cdb0d92436a5b6f602ce480300a4f1bb867c358c205cdb1fc92b4c4\" \n\n";
+		};
 		D50DD6A63C14DC3A415CE2DF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,7 +244,9 @@
 			files = (
 				C1B9BCF825668F0D00098B2B /* ViewController.swift in Sources */,
 				C1B9BCF425668F0D00098B2B /* AppDelegate.swift in Sources */,
+				C1B9BD102566995600098B2B /* Apollo.swift in Sources */,
 				C1B9BCF625668F0D00098B2B /* SceneDelegate.swift in Sources */,
+				C1B9BD162566999500098B2B /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
